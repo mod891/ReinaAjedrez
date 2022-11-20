@@ -6,15 +6,27 @@ public class Posicion {
 	private char columna;
 	
 	public Posicion(int fila, char columna) {
+		
 		setFila(fila);
 		setColumna(columna);
+	}
+	
+	public Posicion(Posicion copia) {
+	
+		if (copia == null) 
+			throw new NullPointerException();
+	
+		setFila(copia.getFila());
+		setColumna(copia.getColumna());
 	}
 	public int getFila() {
 		return fila;
 	}
 	public void setFila(int fila) {
+		
 		if (fila < 1 || fila > 8) 
 			throw new IllegalArgumentException();
+		
 		this.fila = fila;
 		
 	}
@@ -22,6 +34,7 @@ public class Posicion {
 		return columna;
 	}
 	public void setColumna(char columna) {
+		
 		if ((int) columna < 97 || (int) columna > 104 )
 			throw new IllegalArgumentException();
 
