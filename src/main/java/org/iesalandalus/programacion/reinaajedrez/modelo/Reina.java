@@ -9,7 +9,19 @@ public class Reina {
 		setPosicion(new Posicion(1,'d'));
 		setColor(Color.BLANCO);
 	}
-	
+	//rea y que creará una reina de dicho color cuya posición será '1d' si es blanca o '8b' si es negra. Realiza un commit.
+	public Reina(Color color) {
+		if (color == null)
+			throw new NullPointerException();
+		
+		if (color == Color.BLANCO) {
+			setPosicion(new Posicion(1,'d'));
+			setColor(Color.BLANCO);
+		} else {
+			setPosicion(new Posicion(8,'b'));
+			setColor(Color.NEGRO);
+		}
+	}
 	public Posicion getPosicion() {
 		return posicion;
 	}
