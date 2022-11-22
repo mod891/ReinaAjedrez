@@ -39,7 +39,7 @@ public class Consola {
 		
 		do {
 			opcion = Entrada.entero();
-		} while (opcion < 0 || opcion > Direccion.values().length);
+		} while (opcion < 0 || opcion > Direccion.values().length-10);
 		
 		return Direccion.values()[opcion];
 	}
