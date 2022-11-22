@@ -70,17 +70,24 @@ public class Reina {
 					break;
 				
 				case NORESTE:
-					
+					if ((posActual.getFila()+pasos <= 8) &&	( (int) posActual.getColumna() + pasos <= 104 ) ) {
+						this.setPosicion(new Posicion(posActual.getFila()+pasos,(char) ((int) posActual.getColumna()+pasos)));
+					} else
+						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 			
 				case ESTE:
-					if ((int) posActual.getColumna()+pasos <= 104) {
+					if ((int) posActual.getColumna()+pasos <= 104) { // h
 						this.setPosicion(new Posicion(posActual.getFila(), (char) ((int) posActual.getColumna()+pasos)));
 					} else
 						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 					
 				case SURESTE:
+					if ((posActual.getFila()-pasos >= 1) &&	( (int) posActual.getColumna() + pasos <= 104 ) ) 
+						this.setPosicion(new Posicion(posActual.getFila()-pasos,(char) ((int) posActual.getColumna()+pasos)));
+					else
+						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 					
 				case SUR:
@@ -91,20 +98,28 @@ public class Reina {
 					break;
 					
 				case SUROESTE:
+					if ((posActual.getFila()-pasos >= 1) &&	( (int) posActual.getColumna() - pasos >= 97 ) ) 
+						this.setPosicion(new Posicion(posActual.getFila()-pasos,(char) ((int) posActual.getColumna()-pasos)));
+					 else
+						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 					
 				case OESTE:
-					if ((int) posActual.getColumna()-pasos >= 97) {
+					if ((int) posActual.getColumna()-pasos >= 97) { // a
 						this.setPosicion(new Posicion(posActual.getFila(), (char) ((int) posActual.getColumna()-pasos)));
 					} else
 						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 					
 				case NOROESTE:
+					if ((posActual.getFila()+pasos <= 8) &&	( (int) posActual.getColumna() - pasos >= 97 ) ) 
+						this.setPosicion(new Posicion(posActual.getFila()+pasos,(char) ((int) posActual.getColumna()-pasos)));
+					else
+						throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 					break;
 				}
 			}
-		}
+		} else throw new IllegalArgumentException("ERROR: El número de pasos debe estar comprendido entre 1 y 7.");
 	}
 	@Override
 	public String toString() {
