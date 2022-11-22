@@ -44,4 +44,13 @@ public class Consola {
 		return Direccion.values()[opcion];
 	}
 	
+	public int elegirPasos() {
+		
+		System.out.println("Elige el número de pasos a mover");
+		return Entrada.entero();
+	}
+	
+	public void despedirse() {
+		System.out.println("Adios");
+	}
 }
