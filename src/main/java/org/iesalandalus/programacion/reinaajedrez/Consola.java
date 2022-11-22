@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.reinaajedrez;
 
+import org.iesalandalus.programacion.reinaajedrez.modelo.Direccion;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Consola {
@@ -26,6 +27,11 @@ public class Consola {
 		} while (opcion < 1 || opcion > 4);
 		
 		return opcion;
+	}
+	public void mostrarMenuDirecciones() {
+		for (int i=0; i<Direccion.values().length; i++) {
+			System.out.println(i+":"+Direccion.values()[i]);
+		}
 	}
 	
 }
