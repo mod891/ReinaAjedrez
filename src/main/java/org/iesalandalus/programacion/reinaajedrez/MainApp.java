@@ -1,7 +1,8 @@
 package org.iesalandalus.programacion.reinaajedrez;
 
+import org.iesalandalus.programacion.reinaajedrez.modelo.Color;
 import org.iesalandalus.programacion.reinaajedrez.modelo.Reina;
-
+import org.iesalandalus.programacion.reinaajedrez.Consola;
 public class MainApp {
 	
 	private static Reina reina;
@@ -23,6 +24,10 @@ public class MainApp {
 		reina = new Reina();
 	}
 	
+	private static void crearReinaColor() {	
+		Color color = Consola.elegirColor();
+		reina = new Reina(color);
+	}
 	public static void main(String[] args) {
 		
 	}
