@@ -10,15 +10,18 @@ public class Consola {
 	
 	
 	public static void mostrarMenu() {
-		System.out.println("\nMENU\n----\n");
-		System.out.println("1: Crear reina por defecto");
-		System.out.println("2: Crear reina eligiendo el color\n");
-		System.out.println("3: Mover\n");
-		System.out.println("4: Salir\n");
 		
+		System.out.println("\nMENU\n----");
+		System.out.println("1: Crear reina por defecto");
+		System.out.println("2: Crear reina eligiendo el color");
+		System.out.println("3: Mover");
+		System.out.println("4: Mostrar reina");
+		System.out.println("5: Salir");
+		System.out.println();
 	}
 	
 	public static Color elegirColor() {
+		
 		int opcion;
 		System.out.println("Elige un color 1:Blanco, 2:Negro");
 		
@@ -31,26 +34,28 @@ public class Consola {
 	public static int elegirOpcionMenu() {
 		
 		int opcion;
-		System.out.println("Elige una opción [1-4]");
+		System.out.println("Elige una opción [1-5]");
 		
 		do {
 			opcion = Entrada.entero();
-		} while (opcion < 1 || opcion > 4);
+		} while (opcion < 1 || opcion > 5);
 		
 		return opcion;
 	}
 	public static void mostrarMenuDirecciones() {
+		
 		for (int i=0; i<Direccion.values().length; i++) {
 			System.out.println(i+":"+Direccion.values()[i]);
 		}
 	}
 	public static Direccion elegirDireccion() {
+		
 		int opcion;
 		System.out.println("Elija una dirección");
 		
 		do {
 			opcion = Entrada.entero();
-		} while (opcion < 0 || opcion > Direccion.values().length-10);
+		} while (opcion < 0 || opcion > Direccion.values().length-1);
 		
 		return Direccion.values()[opcion];
 	}
@@ -62,6 +67,7 @@ public class Consola {
 	}
 	
 	public static void despedirse() {
+		
 		System.out.println("Adios");
 	}
 }
