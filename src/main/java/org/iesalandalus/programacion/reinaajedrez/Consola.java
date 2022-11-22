@@ -33,5 +33,15 @@ public class Consola {
 			System.out.println(i+":"+Direccion.values()[i]);
 		}
 	}
+	public Direccion elegirDireccion() {
+		int opcion;
+		System.out.println("Elija una dirección");
+		
+		do {
+			opcion = Entrada.entero();
+		} while (opcion < 0 || opcion > Direccion.values().length);
+		
+		return Direccion.values()[opcion];
+	}
 	
 }
