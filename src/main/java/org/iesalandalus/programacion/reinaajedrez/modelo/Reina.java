@@ -25,7 +25,7 @@ public class Reina {
 		}
 	}
 	public Posicion getPosicion() {
-		return posicion;
+		return new Posicion(posicion);
 	}
 	public void setPosicion(Posicion posicion) {
 		if (posicion == null)
@@ -56,17 +56,10 @@ public class Reina {
 				switch (direccion) {
 				
 				case NORTE:
-					//if (this.getColor() == Color.BLANCO) {
 						if (posActual.getFila()+pasos <= 8) {
 							this.setPosicion(new Posicion(posActual.getFila()+pasos,posActual.getColumna()));
 						} else
 							throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
-					/*} else {
-						if (posActual.getFila()+pasos <= 8) {
-							this.setPosicion(new Posicion(posActual.getFila()+pasos,posActual.getColumna()));
-						} else
-							throw new OperationNotSupportedException();	
-					}*/
 					break;
 				
 				case NORESTE:

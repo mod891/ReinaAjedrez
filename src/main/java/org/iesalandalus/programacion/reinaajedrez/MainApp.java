@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.reinaajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.reinaajedrez.modelo.Color;
 import org.iesalandalus.programacion.reinaajedrez.modelo.Direccion;
 import org.iesalandalus.programacion.reinaajedrez.modelo.Reina;
@@ -30,14 +32,22 @@ public class MainApp {
 	}
 	
 	private static void crearReinaDefecto() {
-		
-		reina = new Reina();
+		try {
+
+			reina = new Reina();
+		} catch (IllegalArgumentException | NullPointerException e) { 
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	private static void crearReinaColor() {	
-		
-		Color color = Consola.elegirColor();
-		reina = new Reina(color);
+		try {
+
+			Color color = Consola.elegirColor();
+			reina = new Reina(color);	
+		} catch (IllegalArgumentException | NullPointerException e) { 
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	private static void mover() {
@@ -45,13 +55,12 @@ public class MainApp {
 		Consola.mostrarMenuDirecciones();
 		Direccion direccion = Consola.elegirDireccion();
 		int pasos = Consola.elegirPasos();
-		try {
-			
+		try {	
 			reina.mover(direccion, pasos);
-			
-		} catch (Exception e) {
+		} catch (OperationNotSupportedException e) {
 			System.out.println(e.getMessage());
 		}
+		
 	}
 	private static void mostrarReina() {
 		
